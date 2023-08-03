@@ -2,26 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply !scrollbar-thin !scrollbar-track-transparent
+    !scrollbar-thumb-airbnb
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .iconAnim {
+    @apply cursor-pointer hover:scale-95 transition-all duration-200;
+  }
+  .headerBtn {
+    @apply cursor-pointer  px-2.5 sm:px-6 py-1.5 rounded-full shadow-lg
+    text-sm sm:text-lg hover:scale-105 active:scale-95 transition-all duration-200 ease-out;
+  }
+  .input {
+    @apply w-full border rounded-md mb-4 p-2 outline-none
+  }
+  .responsive {
+    @apply relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px]
+  }
 }
